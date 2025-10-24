@@ -1,21 +1,20 @@
-# Modified from https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/
-
+### Import library
 library(shiny)
 data(airquality)
 
-# Define UI for app that draws a histogram ----
+### Define UI section
 ui <- fluidPage(
   
-  # App title ----
+  # App title
   titlePanel("Ozone level"),
   
-  # Sidebar layout with input and output definitions ----
+  # Sidebar layout with input and output definitions
   sidebarLayout(
     
-    # Sidebar panel for inputs ----
+    # Sidebar panel for inputs
     sidebarPanel(
       
-      # Input: Slider for the number of bins ----
+      # Input: Slider for the number of bins
       sliderInput(inputId = "bins",
                   label = "Number of bins:",
                   min = 1,
@@ -25,17 +24,17 @@ ui <- fluidPage(
       
     ),
     
-    # Main panel for displaying outputs ----
+    # Main panel for displaying outputs
     mainPanel(
       
-      # Output: Histogram ----
+      # Output: Histogram
       plotOutput(outputId = "distPlot")
       
     )
   )
 )
 
-# Define server logic required to draw a histogram ----
+### Define server section
 server <- function(input, output) {
   
 
@@ -53,5 +52,6 @@ server <- function(input, output) {
   
 }
 
-# Create Shiny app ----
+### Create Shiny app
 shinyApp(ui = ui, server = server)
+
